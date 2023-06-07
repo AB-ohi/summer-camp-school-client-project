@@ -1,0 +1,25 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Scrollbar } from "swiper";
+import "swiper/css";
+import "swiper/css/scrollbar";
+
+const Banner = () => {
+    return (
+        <div>
+             <Swiper
+        scrollbar={{
+          hide: true,
+        }}
+        modules={[Scrollbar]}
+        className="mySwiper"
+      >
+        <SwiperSlide><img src="https://i.ibb.co/VtQNjHz/Mesa-de-trabajo-1-2x.png" alt="" /></SwiperSlide>
+        <SwiperSlide><img src="https://i.ibb.co/FzTGd9H/Artboard-1-2x.png" alt="" /></SwiperSlide>
+        <SwiperSlide><img src="https://i.ibb.co/3fF6Jtn/Artboardx.png" alt="" /></SwiperSlide>
+        <SwiperSlide><img src="https://i.ibb.co/B4nH1tk/Mesa.png" alt="" /></SwiperSlide>
+        </Swiper>
+        </div>
+    );
+};
+
+export default Banner;
