@@ -56,10 +56,9 @@ const NavBer = () => {
               {NavList}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl flex flex-col">
-            <h1>BISTRO BOSS</h1>
-            <h1>Restaurant</h1>
-          </a>
+          <Link to="/" className="normal-case text-xl flex flex-col">
+            <img className="w-[100px]" src="https://i.ibb.co/0X4M8TP/Mesa-de-trabajo-1-copia-2x.png" alt="" />
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{NavList}</ul>
