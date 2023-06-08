@@ -19,12 +19,12 @@ const NavBer = () => {
         <Link to="/instructors">Instructors</Link>
       </li>
       <li>
+        <Link to="/classes">Classes</Link>
+      </li>
+      <li>
         <Link to="/dashboard/adminHome">Dashboard</Link>
       </li>
 
-      <li>
-        <Link to="/order/pizza">Our Shop</Link>
-      </li>
       <li>
         {user ? (
           <>
