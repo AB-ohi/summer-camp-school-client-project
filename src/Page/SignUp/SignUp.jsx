@@ -1,14 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link,useLocation, useNavigate } from "react-router-dom";
 import "../Login/Login.css";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import SocialLogin from "../Login/SocialLogin";
+import Swal from "sweetalert2";
 const SignUp = () => {
   const {
     register,handleSubmit,
     formState: { errors },
   } = useForm();
   const { createUser,updateUserProfile } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || '/'
 
 
   const onSubmit = (data) =>{
@@ -17,7 +23,14 @@ const SignUp = () => {
     .then(result =>{
       const loggedUser = result.user;
       console.log(loggedUser)
+      Swal.fire({
+        icon: 'success',
+        title: 'Login Success!!',
+        showConfirmButton: false,
+        timer: 1500
+      })
       updateUserProfile(data.name, data.photoURL)
+      navigate(from, {replace: true})
     })
   };
 
@@ -42,14 +55,7 @@ const SignUp = () => {
         <p className="text-[#898D93] mt-2">
           Welcome, Please create to your account.
         </p>
-        <button className="btn btn-outline btn-primary w-full md:my-[60px]">
-          <img
-            className="w-[20px]"
-            src="https://i.ibb.co/hYh0gXW/google-logo-9808.png"
-            alt=""
-          />
-          Log in with Google
-        </button>
+        <SocialLogin></SocialLogin>
         <div className="divider text-blue-600 w-2/3 m-auto">
           
           Create Your Account

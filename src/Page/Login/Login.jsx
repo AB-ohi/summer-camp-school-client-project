@@ -2,6 +2,8 @@ import { Link,useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import SocialLogin from "./SocialLogin";
+import Swal from "sweetalert2";
 const Login = () => {
   const {login} = useContext(AuthContext)
   const location = useLocation();
@@ -20,8 +22,13 @@ const Login = () => {
     login(email, password)
     .then(result =>{
       const user = result.user;
-      
       console.log(user)
+      Swal.fire({
+        icon: 'success',
+        title: 'Login Success!!',
+        showConfirmButton: false,
+        timer: 1500
+      })
       navigate(from, {replace: true})
     })
     .catch(error =>console.log(error));
@@ -41,7 +48,7 @@ const Login = () => {
           <h1 className="form-heder">Melody Music Academy</h1>
         </div>
         <p className="text-[#898D93] mt-2">Welcome, Please login to your account.</p>
-        <button className="btn btn-outline btn-primary w-full md:my-[60px]"><img className="w-[20px]" src="https://i.ibb.co/hYh0gXW/google-logo-9808.png" alt="" /> Log in with Google</button>
+        <SocialLogin></SocialLogin>
         <div className="divider text-blue-600 w-2/3 m-auto"> login For External User</div>
         <form onSubmit={handelToLogin}>
           <div className="form-control">
