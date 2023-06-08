@@ -1,13 +1,13 @@
 const InstructorCart = ({instructor}) => {
   return (
     <div>
-      <div className="card-body">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+      <div className="card-body text-center">
+        <h2 className="font-bold text-lg">Name: {instructor.name}</h2>
+        <p>Gmail: {instructor.email}</p>
       </div>
       <figure>
         <img
-        className=""
+        className="w-[400px] rounded-2xl"
           src={instructor.image}
           alt="Shoes"
         />
