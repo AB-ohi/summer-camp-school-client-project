@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link,useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -27,7 +27,7 @@ const Login = () => {
     .catch(error =>console.log(error));
   }
   return (
-    <div className="md:flex login-bg w-full mb-4">
+    <div className="md:flex items-end login-bg w-full mb-4">
       <div className="md:w-1/2  pt-20">
         <img src="https://i.ibb.co/VmvhF9R/9-2x.png" alt="" />
       </div>
