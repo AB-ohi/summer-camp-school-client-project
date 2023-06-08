@@ -1,11 +1,37 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 const Login = () => {
+  const {login} = useContext(AuthContext)
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || '/'
+
+  const handelToLogin = event =>{
+    event.preventDefault()
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const user = {email, password};
+    console.log(user)
+
+    login(email, password)
+    .then(result =>{
+      const user = result.user;
+      
+      console.log(user)
+      navigate(from, {replace: true})
+    })
+    .catch(error =>console.log(error));
+  }
   return (
-    <div className="flex login-bg w-full">
-      <div className="w-1/2">
-        <img src="https://i.ibb.co/XbHJXxb/Artboard-28-2x.png" alt="" />
+    <div className="md:flex login-bg w-full mb-4">
+      <div className="md:w-1/2  pt-20">
+        <img src="https://i.ibb.co/VmvhF9R/9-2x.png" alt="" />
       </div>
-      <div className="w-1/2 pt-20">
+      <div className="md:w-1/2 m-auto pt-20">
         <div className="flex items-center">
           <img
             className="w-8"
@@ -17,12 +43,13 @@ const Login = () => {
         <p className="text-[#898D93] mt-2">Welcome, Please login to your account.</p>
         <button className="btn btn-outline btn-primary w-full md:my-[60px]"><img className="w-[20px]" src="https://i.ibb.co/hYh0gXW/google-logo-9808.png" alt="" /> Log in with Google</button>
         <div className="divider text-blue-600 w-2/3 m-auto"> login For External User</div>
-        <form>
+        <form onSubmit={handelToLogin}>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
             </label>
             <input
+            name="email"
               type="text"
               placeholder="email"
               className="input input-bordered"
@@ -33,6 +60,7 @@ const Login = () => {
               <span className="label-text">Password</span>
             </label>
             <input
+            name="password"
               type="text"
               placeholder="password"
               className="input input-bordered"
@@ -47,6 +75,7 @@ const Login = () => {
             <button className="btn btn-primary">Login</button>
           </div>
         </form>
+        <p>create new account <Link to='/signUp'><span className="text-blue-600">Registration Now!!</span></Link></p>
       </div>
     </div>
   );
