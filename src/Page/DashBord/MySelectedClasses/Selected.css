@@ -1,0 +1,12 @@
+.SelectedClasses{
+    box-shadow: 10px 10px 28px -12px rgba(0,197,252,1);
+}
+.pay-btn{
+    background-color: rgb(255, 198, 112);
+    color: white;
+    transition: 0.4s;
+}
+
+.pay-btn:hover{
+    color: black;
+}

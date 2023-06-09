@@ -6,7 +6,9 @@ const PrivetRoute = ({children}) => {
     const { user,loading } = useContext(AuthContext);
     const location = useLocation()
     if(loading){
-      return <progress className="progress w-56 m-auto"></progress>
+      return <div className="flex justify-center mt-[60px]">
+        <span className=" m-auto loading loading-dots loading-lg"></span>
+      </div>
     }
     if (user) {
       return children;
