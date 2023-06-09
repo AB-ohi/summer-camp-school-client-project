@@ -12,7 +12,7 @@ const ClassCaet = ({ cls }) => {
     const handelAddToCard = classes =>{
         console.log(classes)
         if(user && user.email){
-            const addClass = {classId:_id, name, image, instructor, price}
+            const addClass = {classId:_id, name, image, instructor, price, email:user?.email}
             fetch('http://localhost:5000/classSelect',{
                 method:"POST",
                 headers:{

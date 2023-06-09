@@ -8,6 +8,8 @@ import Classes from "../Page/Classes/Classes";
 import PrivetRoute from "./PrivetRoute";
 import DashBoard from "../LayOut/DashBoard/DashBoard";
 import MySelectedClasses from "../Page/DashBord/MySelectedClasses/MySelectedClasses";
+import EnrolledClasses from "../Page/DashBord/EnrolledClasses/EnrolledClasses";
+import Payment from "../Page/DashBord/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +45,15 @@ const router = createBrowserRouter([
       {
         path:'mySelectedClass',
         element:<MySelectedClasses></MySelectedClasses>
-      }
+      },
+      {
+        path:'enrolledClasses',
+        element:<EnrolledClasses></EnrolledClasses>
+      },
+      {
+        path:'payment',
+        element:<Payment></Payment>
+      },
     ]
   }
 ]);
