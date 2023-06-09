@@ -8,7 +8,6 @@ import Swal from "sweetalert2";
 const SignUp = () => {
   const {
     register,handleSubmit,
-    formState: { errors },
   } = useForm();
   const { createUser,updateUserProfile } = useContext(AuthContext);
   const location = useLocation();
@@ -30,7 +29,17 @@ const SignUp = () => {
         timer: 1500
       })
       updateUserProfile(data.name, data.photoURL)
-      navigate(from, {replace: true})
+      .then(()=>{
+        const saveUser = {name: data.name, email: data.email}
+        fetch("http://localhost:5000/users",{
+          method:"POST",
+          headers:{
+            'content-type':'application/json'
+          },
+          body:JSON.stringify(saveUser)
+        })
+      })
+      navigate('/')
     })
   };
 

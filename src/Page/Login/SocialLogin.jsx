@@ -13,13 +13,22 @@ const SocialLogin = () => {
         .then(res => {
             const loggedUser = res.user;
             console.log(loggedUser);
-            Swal.fire({
-                icon: 'success',
-                title: 'Login Success!!',
-                showConfirmButton: false,
-                timer: 1500
-              })
-            navigate(from, { replace: true });  
+            const saveUser = {name: loggedUser.displayName, email: loggedUser.email}
+            fetch("http://localhost:5000/users",{
+            method:"POST",
+            headers:{
+              'content-type':'application/json'
+            },
+            body:JSON.stringify(saveUser)
+          })
+            .then((res) => res.json())
+            .then((data) => {
+                if(data.insertedId){
+                    navigate(from, { replace: true });
+                }
+            });
+
+            
         })
     }
     return (
