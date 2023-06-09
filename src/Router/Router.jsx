@@ -10,6 +10,8 @@ import DashBoard from "../LayOut/DashBoard/DashBoard";
 import MySelectedClasses from "../Page/DashBord/MySelectedClasses/MySelectedClasses";
 import EnrolledClasses from "../Page/DashBord/EnrolledClasses/EnrolledClasses";
 import Payment from "../Page/DashBord/Payment/Payment";
+import ManagClasses from "../Page/DashBord/Admin/ManageClasses/ManagClasses";
+import ManageUsers from "../Page/DashBord/Admin/ManageUsers/ManageUsers";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +56,15 @@ const router = createBrowserRouter([
         path:'payment',
         element:<Payment></Payment>
       },
+      {
+        path:'manageClasses',
+        element:<ManagClasses></ManagClasses>
+      },
+      {
+        path:'manageUsers',
+        element:<ManageUsers></ManageUsers>
+      },
+
     ]
   }
 ]);

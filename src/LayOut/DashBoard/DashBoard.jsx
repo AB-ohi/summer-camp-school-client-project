@@ -3,6 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 
 const DashBoard = () => {
+  const isAdmin = true;
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -18,16 +19,36 @@ const DashBoard = () => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-          {/* Sidebar content here */}
-          <li>
-            <NavLink to="/dashboard/mySelectedClass">My Selected Class</NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/enrolledClasses">My Enrolled Classes</NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/payment">Payment</NavLink>
-          </li>
+          {isAdmin ? (
+            <>
+              <li>
+                <NavLink to="/dashboard/manageClasses">
+                Manage Classes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/manageUsers">
+                Manage Users
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/dashboard/mySelectedClass">
+                  My Selected Class
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/enrolledClasses">
+                  My Enrolled Classes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/payment">Payment</NavLink>
+              </li>
+            </>
+          )}
           {/* divider */}
           <div className="divider">OR</div>
           <li>
