@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { Fade } from "react-awesome-reveal";
+import useAdmin from "../../Hooks/useAdmin";
 
 const DashBoard = () => {
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
