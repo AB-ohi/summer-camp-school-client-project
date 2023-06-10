@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import { reload } from "firebase/auth";
 
 const SocialLogin = () => {
     const {googleSingIn} = useContext(AuthContext);
@@ -24,10 +24,11 @@ const SocialLogin = () => {
             .then((res) => res.json())
             .then((data) => {
                 if(data.insertedId){
-                    navigate(from, { replace: true });
                 }
             });
-
+            navigate(from, { replace: true });
+            reload()
+            
             
         })
     }

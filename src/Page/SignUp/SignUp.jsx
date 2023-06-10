@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SocialLogin from "../Login/SocialLogin";
 import Swal from "sweetalert2";
+import { reload } from "firebase/auth";
 const SignUp = () => {
   const {
     register,handleSubmit,
@@ -40,6 +41,7 @@ const SignUp = () => {
         })
       })
       navigate('/')
+      reload()
     })
   };
 

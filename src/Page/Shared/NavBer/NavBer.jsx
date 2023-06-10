@@ -94,7 +94,7 @@ const NavBer = () => {
                   ) : (
                     <img
                       className="rounded-full"
-                      src="https://static.vecteezy.com/system/resources/previews/002/412/377/original/coffee-cup-logo-coffee-shop-icon-design-free-vector.jpg"
+                      src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
                     />
                   )}
                 </div>

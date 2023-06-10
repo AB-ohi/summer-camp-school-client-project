@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SocialLogin from "./SocialLogin";
 import Swal from "sweetalert2";
+import { reload } from "firebase/auth";
 const Login = () => {
   const {login} = useContext(AuthContext)
   const location = useLocation();
@@ -30,6 +31,7 @@ const Login = () => {
         timer: 1500
       })
       navigate(from, {replace: true})
+      reload()
     })
     .catch(error =>console.log(error));
   }

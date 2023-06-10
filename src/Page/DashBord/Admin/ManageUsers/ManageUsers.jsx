@@ -18,7 +18,6 @@ const ManageUsers = () => {
         if (data.modifiedCount) {
           refetch();
           Swal.fire({
-            position: "top-end",
             icon: "success",
             title: `is an admin Now !`,
             showConfirmButton: false,
@@ -28,7 +27,7 @@ const ManageUsers = () => {
       });
   };
   const handelInstructor = (user) => {
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -37,7 +36,6 @@ const ManageUsers = () => {
         if (data.modifiedCount) {
           refetch();
           Swal.fire({
-            position: "top-end",
             icon: "success",
             title: `is an admin Now !`,
             showConfirmButton: false,
@@ -84,7 +82,7 @@ const ManageUsers = () => {
           <table className="table">
             {/* head */}
             <thead>
-              <tr>
+              <tr className="text-center">
                 <th>No</th>
                 <th>Name</th>
                 <th>Email</th>
@@ -102,7 +100,7 @@ const ManageUsers = () => {
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
                           <img
-                            src={users.image}
+                            src={user.image}
                             alt="Avatar Tailwind CSS Component"
                           />
                         </div>
@@ -116,25 +114,25 @@ const ManageUsers = () => {
                       {user.email}
                     </span>
                   </td>
-                  <td>
+                  <td className="text-center">
                     {user.role === "admin" ? (
-                      <FaUserShield className="text-green-400 text-2xl" />
+                      <FaUserShield className="text-green-400 text-2xl m-auto" />
                     ):(
                       <button
                         onClick={() => handelMakeAdmin(user)}
-                        className="btn disabled"
+                        className="btn"
                       >
                         Admin
                       </button>
                     ) }
                   </td>
-                  <td>
+                  <td className="text-center">
                   {user.role === "instructor" ? (
-                      <FaUserTie className="text-red-600 text-2xl" />
+                      <FaUserTie className="text-red-600 text-2xl m-auto" />
                     ):(
                       <button
                         onClick={() => handelInstructor(user)}
-                        className="btn disabled"
+                        className="btn m-auto"
                       >
                         Instructor
                       </button>
