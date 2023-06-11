@@ -1,7 +1,7 @@
 import { Link,useLocation, useNavigate } from "react-router-dom";
 import "../Login/Login.css";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SocialLogin from "../Login/SocialLogin";
 import Swal from "sweetalert2";
@@ -11,6 +11,7 @@ const SignUp = () => {
     register,handleSubmit,
   } = useForm();
   const { createUser,updateUserProfile } = useContext(AuthContext);
+  const [passwordError, setPasswordError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -19,6 +20,37 @@ const SignUp = () => {
 
   const onSubmit = (data) =>{
     console.log(data)
+    if (data.email.trim() === "" || data.password.trim() === "") {
+      return Swal.fire({
+        icon: "error",
+        title: "Email and password cannot be empty",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+    if (data.password !== data.confirmPassword) {
+      return Swal.fire({
+        icon: "error",
+        title: "Passwords do not match",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+    const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+  if (!passwordRegex.test(data.password)) {
+    setPasswordError(
+      "Password must be at least 6 characters long, contain a capital letter, and a special character."
+    );
+    return Swal.fire({
+      
+      icon: "error",
+      title:
+        "Password must be at least 6 characters long, contain a capital letter, and a special character.",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
     createUser(data.email, data.password)
     .then(result =>{
       const loggedUser = result.user;
@@ -40,7 +72,6 @@ const SignUp = () => {
           body:JSON.stringify(saveUser)
         })
       })
-      navigate('/')
       reload()
     })
   };
@@ -111,10 +142,15 @@ const SignUp = () => {
             </label>
             <input
               type="password"
+              name="confirmPassword"
               placeholder="Confirm Password"
               className="input input-bordered"
+              {...register("confirmPassword")}
             />
           </div>
+          {passwordError && (
+            <p className="text-red-500 text-sm mb-4">{passwordError}</p>
+          )}
           <div className="form-control">
             <label className="label">
               <span className="label-text">Photo URL</span>

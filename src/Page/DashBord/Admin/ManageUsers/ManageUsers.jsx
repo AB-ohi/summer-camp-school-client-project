@@ -29,7 +29,7 @@ const ManageUsers = () => {
       });
   };
   const handelInstructor = (user) => {
-    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+    fetch(`http://localhost:5000/users/instructors/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -129,7 +129,7 @@ const ManageUsers = () => {
                     ) }
                   </td>
                   <td className="text-center">
-                  {user.role === "instructor" ? (
+                  {user.role === "instructors" ? (
                       <FaUserTie className="text-red-600 text-2xl m-auto" />
                     ):(
                       <button

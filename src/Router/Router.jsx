@@ -13,6 +13,10 @@ import Payment from "../Page/DashBord/Payment/Payment";
 import ManagClasses from "../Page/DashBord/Admin/ManageClasses/ManagClasses";
 import ManageUsers from "../Page/DashBord/Admin/ManageUsers/ManageUsers";
 import Error from "../Page/Error/Error";
+import AdminRout from "./AdminRout";
+import InstructorRout from "./InstructorRout";
+import AddClass from "../Page/DashBord/Instructors/AddClass/AddClass";
+import MyClass from "../Page/DashBord/Instructors/MyClass.jsx/MyClass";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +50,7 @@ const router = createBrowserRouter([
     path:'dashboard',
     element:<PrivetRoute><DashBoard></DashBoard></PrivetRoute>,
     children:[
+      // user rout
       {
         path:'mySelectedClass',
         element:<MySelectedClasses></MySelectedClasses>
@@ -58,13 +63,23 @@ const router = createBrowserRouter([
         path:'payment',
         element:<Payment></Payment>
       },
+      // admin Rout
       {
         path:'manageClasses',
-        element:<ManagClasses></ManagClasses>
+        element:<AdminRout><ManagClasses></ManagClasses></AdminRout>
       },
       {
         path:'manageUsers',
-        element:<ManageUsers></ManageUsers>
+        element:<AdminRout><ManageUsers></ManageUsers></AdminRout>
+      },
+      //instructors rout
+      {
+        path:'addClasses',
+        element:<InstructorRout><AddClass></AddClass></InstructorRout>
+      },
+      {
+        path:'myClass',
+        element:<InstructorRout><MyClass></MyClass></InstructorRout>
       },
 
     ]

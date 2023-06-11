@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import TopClass from "../TopClass/TopClass";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <TopClass></TopClass>
+            <PopularInstructors></PopularInstructors>
         </div>
     );
 };
