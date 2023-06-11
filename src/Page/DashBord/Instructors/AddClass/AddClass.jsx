@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
-import { FaUtensils } from "react-icons/fa";
+import { FaMusic, FaUtensils } from "react-icons/fa";
 import { useContext } from "react";
-import { AuthContext } from "../../../../Provider/AuthProvider";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure/useAxiosSecure";
 import Swal from "sweetalert2";
 import { reload } from "firebase/auth";
+import './AddClass.css'
+import { AuthContext } from "../../../../provider/AuthProvider";
 const img_hosting_token = import.meta.env.VITE__Image_Upload_token;
 
 const AddClass = () => {
@@ -64,7 +65,7 @@ const AddClass = () => {
       <SectionTitle Heading="Add A Nwe Class"></SectionTitle>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-[#e4e4e4] m-[70px] p-[50px]"
+        className="rounded-2xl m-[70px] p-[50px] add-class-bg"
       >
         <div className="md:flex w-full gap-6">
           <div className="w-1/2">
@@ -149,10 +150,10 @@ const AddClass = () => {
         <button
           className="btn flex items-center py-4 px-[30px] mt-8 gap-2 text-white"
           style={{
-            background: "linear-gradient(90deg, #835D23 0%, #B58130 100%)",
+            background: "linear-gradient(90deg, rgba(196,82,0,0.7371323529411764) 0%, rgba(255,131,165,0.6194852941176471) 100%)",
           }}
         >
-          Add Item<FaUtensils></FaUtensils>
+          Add Item<FaMusic></FaMusic>
         </button>
       </form>
     </div>

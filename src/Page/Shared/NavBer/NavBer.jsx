@@ -29,15 +29,12 @@ const NavBer = () => {
         <li>
           <Link to="/dashboard/manageUsers">Dashboard</Link>
         </li>
-      ) : isInstructors ? (
-        <li>
-          <Link to="/dashboard/addClasses">Dashboard</Link>
-        </li>
-      ) : (
+      ) :  (
         <li>
           <Link to="/dashboard/mySelectedClass">Dashboard</Link>
         </li>
-      )}
+      )
+    }
 
       <li>
         {user ? (

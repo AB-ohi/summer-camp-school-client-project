@@ -2,10 +2,14 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAdmin from "../../Hooks/useAdmin";
+import useInstructors from "../../Hooks/useInstructors";
 
 const ClassCaet = ({ cls }) => {
     console.log(cls)
     const {name,image,instructor, price, _id} = cls
+    const [isAdmin] = useAdmin()
+    const [isInstructors] = useInstructors()
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
@@ -51,14 +55,14 @@ const ClassCaet = ({ cls }) => {
 
     return (
         <div>
-            <figure><img className="rounded" src={cls.image} alt="Shoes" /></figure>
+            <figure><img className="rounded h-[350px]" src={cls.image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">Name: {cls.name}</h2>
                 <p>Instructor: {cls.instructor}</p>
                 <p>price: {cls.price}$</p>
                 <div className="card-actions justify-end">
-                     <button onClick={handelAddToCard} className="btn btn-primary">Buy Now</button>
-                    {/* <button className="btn btn-primary">Buy Now</button> */}
+                <button onClick={handelAddToCard} className="btn btn-primary" >Buy Now</button>
+                     
                 </div>
             </div>
         </div>

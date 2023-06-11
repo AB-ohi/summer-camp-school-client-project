@@ -3,6 +3,7 @@ import useAddClasses from "../../../Hooks/useAddClasses";
 import Selected from "./Selected";
 import "./Selected.css";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MySelectedClasses = () => {
   const [classSelect] = useAddClasses();
@@ -46,7 +47,7 @@ const MySelectedClasses = () => {
           </h1>
           <h1>Total Price for Classes: {total} $</h1>
         </div>
-        <button className="btn pay-btn mt-4">Payment</button>
+        <Link to='/dashboard/payment' className="btn pay-btn mt-4">Payment</Link>
       </div>
       <div>
         <div className="grid items-center grid-cols-1 gap-6">

@@ -71,8 +71,9 @@ const SignUp = () => {
           },
           body:JSON.stringify(saveUser)
         })
+        navigate()
+        reload()
       })
-      reload()
     })
   };
 
