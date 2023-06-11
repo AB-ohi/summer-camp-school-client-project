@@ -10,7 +10,7 @@ const useInstructors = () => {
       enabled:!loading,
       queryFn: async () => {
         const res = await fetch(
-          `http://localhost:5000/users/instructors/${user?.email}`,
+          `https://summer-camp-school-server-project-ab-ohi.vercel.app/users/instructors/${user?.email}`,
           {headers:{
             authorization: `bearer ${token}`
           }}

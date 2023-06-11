@@ -2,10 +2,10 @@ import { Link,useLocation, useNavigate } from "react-router-dom";
 import "../Login/Login.css";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
 import SocialLogin from "../Login/SocialLogin";
 import Swal from "sweetalert2";
 import { reload } from "firebase/auth";
+import { AuthContext } from "../../provider/AuthProvider";
 const SignUp = () => {
   const {
     register,handleSubmit,
@@ -64,7 +64,7 @@ const SignUp = () => {
       updateUserProfile(data.name, data.photoURL)
       .then(()=>{
         const saveUser = {name: data.name, email: data.email, image:data.photoURL}
-        fetch("http://localhost:5000/users",{
+        fetch("https://summer-camp-school-server-project-ab-ohi.vercel.app/users",{
           method:"POST",
           headers:{
             'content-type':'application/json'

@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAdmin from "../../Hooks/useAdmin";
 import useInstructors from "../../Hooks/useInstructors";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const ClassCaet = ({ cls }) => {
     console.log(cls)
@@ -17,7 +17,7 @@ const ClassCaet = ({ cls }) => {
         console.log(classes)
         if(user && user.email){
             const addClass = {classId:_id, name, image, instructor, price, email:user?.email}
-            fetch('http://localhost:5000/classSelect',{
+            fetch('https://summer-camp-school-server-project-ab-ohi.vercel.app/classSelect',{
                 method:"POST",
                 headers:{
                     'content-type':'application/json'

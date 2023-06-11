@@ -5,7 +5,7 @@ import ClassCaet from "./ClassCaet";
 const Classes = () => {
   const [classes, SetClasses] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/classes")
+    fetch("https://summer-camp-school-server-project-ab-ohi.vercel.app/classes")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

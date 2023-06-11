@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import { reload } from "firebase/auth";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const SocialLogin = () => {
     const {googleSingIn} = useContext(AuthContext);
@@ -14,7 +14,7 @@ const SocialLogin = () => {
             const loggedUser = res.user;
             console.log(loggedUser);
             const saveUser = {name: loggedUser.displayName, email: loggedUser.email, image:loggedUser.photoURL}
-            fetch("http://localhost:5000/users",{
+            fetch("https://summer-camp-school-server-project-ab-ohi.vercel.app/users",{
             method:"POST",
             headers:{
               'content-type':'application/json'

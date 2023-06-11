@@ -1,10 +1,10 @@
 import { Link,useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
 import SocialLogin from "./SocialLogin";
 import Swal from "sweetalert2";
 import { reload } from "firebase/auth";
+import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
   const {login} = useContext(AuthContext)
   const location = useLocation();
@@ -70,7 +70,7 @@ const Login = () => {
             </label>
             <input
             name="password"
-              type="text"
+              type="password"
               placeholder="password"
               className="input input-bordered"
             />
