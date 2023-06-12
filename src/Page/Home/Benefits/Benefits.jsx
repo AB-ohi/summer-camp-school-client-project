@@ -5,8 +5,8 @@ const Benefits = () => {
   return (
     <div className="mt-24">
       <SectionTitle Heading="Benefits"></SectionTitle>
-      <div className="hero h-[350px] md:h-[450px] bg-base-200">
-        <div className="hero-content md:flex-col lg:flex-row">
+      <div className="hero  bg-base-200">
+        <div className="hero-content flex-col lg:flex-row">
           <img
             src="https://i.ibb.co/VxTYQnG/side-view-female-musician-home-writing-song-while-playing-acoustic-guitar-23-2148890857.jpg"
             className="max-w-sm rounded-lg shadow-2xl"
@@ -25,7 +25,7 @@ const Benefits = () => {
           </div>
         </div>
       </div>
-      <div className="hero h-[350px] md:h-[450px] bg-base-200">
+      <div className="hero  bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
             src="https://i.ibb.co/6Rn6swm/front-view-young-male-sitting-with-guitar-red-wall-music-performance-musician-color-applause-play-li.jpg"
@@ -40,7 +40,7 @@ const Benefits = () => {
           </div>
         </div>
       </div>
-      <div className="hero h-[350px] md:h-[450px] bg-base-200">
+      <div className="hero bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <img
             src="https://i.ibb.co/2vq8KSt/guy-playing-drums-stroking-with-drumsticks.jpg"
