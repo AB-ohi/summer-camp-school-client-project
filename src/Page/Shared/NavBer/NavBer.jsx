@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../../provider/AuthProvider";
 import useAdmin from "../../../Hooks/useAdmin";
 import useInstructors from "../../../Hooks/useInstructors";
 
@@ -29,7 +29,11 @@ const NavBer = () => {
         <li>
           <Link to="/dashboard/manageUsers">Dashboard</Link>
         </li>
-      ) :  (
+      ) : isInstructors? (
+        <li>
+          <Link to="/dashboard/addClasses">Dashboard</Link>
+        </li>
+      ):(
         <li>
           <Link to="/dashboard/mySelectedClass">Dashboard</Link>
         </li>
@@ -105,7 +109,7 @@ const NavBer = () => {
                   ) : (
                     <img
                       className="rounded-full"
-                      src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                      src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?t=st=1686584225~exp=1686584825~hmac=70a7550a10bbe9778624df199308012584f0cecf7108f928892d9ef30ac93d8a"
                     />
                   )}
                 </div>

@@ -1,0 +1,9 @@
+.top-ins-img{
+    border-radius: 6px;
+    transition: 0.5s;
+}
+.top-ins-img:hover{
+    border-radius: 20px;
+    box-shadow: 9px 10px 35px 2px rgba(9,181,224,0.62);
+}
+

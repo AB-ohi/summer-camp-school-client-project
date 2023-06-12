@@ -62,6 +62,7 @@ const ClassCaet = ({ cls }) => {
                 <p>price: {cls.price}$</p>
                 <div className="card-actions justify-end">
                 <button onClick={handelAddToCard} className="btn btn-primary" >Buy Now</button>
+                
                      
                 </div>
             </div>

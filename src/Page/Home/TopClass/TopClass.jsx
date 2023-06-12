@@ -11,7 +11,7 @@ const TopClass = () => {
   console.log(TopClass);
 
   return (
-    <div>
+    <div className="mt-24">
       <SectionTitle
       Heading="Top Class"
       ></SectionTitle>

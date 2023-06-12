@@ -7,7 +7,7 @@ const InstructorCart = ({instructor}) => {
       </div>
       <figure>
         <img
-        className="w-[400px] rounded-2xl"
+        className="w-[500px] h-[400px] rounded-2xl"
           src={instructor.image}
           alt="Shoes"
         />
